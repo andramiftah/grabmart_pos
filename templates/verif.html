@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="Container">
+        {% if data %}
+            {% for table in data %}
+                {{titles[loop.index]}}
+                {{ table|safe }}
+            {% endfor %}
+        {% endif %}
+
+        <br>
+
+        {% if data2 %}
+            {% for table in data2 %}
+                {{titles2[loop.index]}}
+                {{ table|safe }}
+            {% endfor %}
+        {% endif %}
+        <form class="form-group" method="post" action=""
+                style="margin:auto;max-width:600px">
+            <br>
+            <h3> Order Correct? </h3>
+            <button type="submit" class="btn btn-primary"> Submit </button>
+            <br>
+        </form>
+    </div>
+{% endblock %}

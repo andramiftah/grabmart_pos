@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="Container">
+        <form class="form-group" method="post" action=""
+                style="margin:auto;max-width:600px">
+            <br>
+            <h3> Product Barcode :  </h3>
+            {{ form.product_barcode(class_ = 'form-control', autofocus = true) }}
+            <br>
+            <button type="submit" class="btn btn-primary" name = 'insert'> Submit </button>
+            <button type="submit" class="btn btn-danger" name = 'reset'> Reset </button>
+            <a type="button" href="{{ url_for('verif') }}" class="btn btn-link"> Next </a>
+            <br>
+        </form>
+        {% if data %}
+            {% for table in data %}
+                {{titles[loop.index]}}
+                {{ table|safe }}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
